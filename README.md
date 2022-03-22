@@ -4,6 +4,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Test task in react
 
-In the project directory, you can run: 
 
-### `npm run start`
+![example](https://user-images.githubusercontent.com/6489389/159556250-494f7fdd-c9d8-457b-97f3-0e0a1aad2f5b.gif)

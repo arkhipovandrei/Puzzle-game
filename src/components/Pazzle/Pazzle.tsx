@@ -52,6 +52,7 @@ const Puzzle = () => {
 
 
   return <>
+    <h1>Welcome to Puzzle game</h1>
     <section>
       <div id="puzzle">
         {tiles && tiles.map((tile:string, index:number) => <Tile 

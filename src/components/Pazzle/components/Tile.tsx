@@ -1,9 +1,27 @@
-const Tile = ({tile, onClick}) => {
+import { VFC, MouseEvent } from "react";
+import ITileProps from "./interfaces/ITileProps";
 
-  const isEmpty = tile === '9';
+export const isEmptyTile = (tile: string):boolean => {
+  return tile === '9';
+}
 
-  return <div onClick={onClick} className={`tile ${isEmpty && 'empty'}`}>
-    {tile}
+const Tile:VFC<ITileProps> = (props) => {
+
+  const {
+    tile, index,
+    onMove
+  } = props;
+
+  const handleClick = (event: MouseEvent) => {
+    event.preventDefault();
+    onMove(index);
+  }
+
+  return <div 
+    onClick={handleClick} 
+    className={`tile ${isEmptyTile(tile) && 'empty'}`}
+    >
+      {tile}
   </div>
 }
 

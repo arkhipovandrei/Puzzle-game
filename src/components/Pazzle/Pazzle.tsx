@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { isSolvedState } from "./state/isSolvedState";
 import tileState from "./state/tilesState";
-import Tile from './components/Tile';
+import Tile, { isEmptyTile } from './components/Tile';
 
 
 const Puzzle = () => {
@@ -28,13 +28,13 @@ const Puzzle = () => {
     [5, 7]
   ]
 
-  const isEmpty = (tile) =>  {
-    return tiles.findIndex(tile => tile === '9')
+  const isEmpty = (tile:string) =>  {
+    return tiles.findIndex(tile => isEmptyTile(tile))
   }
 
-  const move = (i) => {
+  const move = (i:number) => {
     
-    if (moves[i].includes(isEmpty(i))) {
+    if (moves[i].includes(isEmpty(i.toString()))) {
 
       let tileIndex  = i
       let tile       = tiles[i]
@@ -54,10 +54,11 @@ const Puzzle = () => {
   return <>
     <section>
       <div id="puzzle">
-        {tiles && tiles.map((tile, i) => <Tile 
+        {tiles && tiles.map((tile:string, index:number) => <Tile 
         key={tile} 
         tile={tile}
-        onClick={() => move(i)} 
+        onMove={move}
+        index={index}
       />)}
       </div>   
     </section>

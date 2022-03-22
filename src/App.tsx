@@ -1,7 +1,8 @@
+import { VFC } from 'react';
 import './App.css';
 import Puzzle from './components/Pazzle/Pazzle';
 
-function App() {
+const App:VFC = () => {
   return (
     <div className="App">
       <Puzzle/>

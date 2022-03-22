@@ -1,13 +1,47 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body, section{
+  height: 100%;
+  width: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background: whitesmoke;
+}
+  
+section{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#puzzle{
+  background: #CCC;
+  border: 2px solid black;
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 240px;
+  width: 240px;
+  padding: 4px;
+  border-radius: 8px;
+}
+  
+.tile{
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  font-size: 36px;
+  font-weight: bold;
+  justify-content: center;
+}
+  
+.tile.empty{
+  opacity: 0;
+  pointer-events: none;
+}
+  
+.slide-move{
+  transition: transform .5s ease;
 }
